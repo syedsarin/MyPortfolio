@@ -1,362 +1,611 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="/style.css"/>
-    <link rel="stylesheet" href="/mediaqueries.css"/>
-  </head>
-  <body>
-    <nav id="desktop-nav">
-      <div class="logo">Syed Sarin</div>
-      <div>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="assets\css\styles.css">
+        <link rel="stylesheet" href="assets\css\Dark.css">
+
+
+        <!-- =====BOX ICONS===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <title>Portfolio website complete</title>
+
+        <style>
+
+
+.contact__container {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.contact__email p {
+    margin: 0.5rem 0;
+    color: #555;
+}
+
+.contact__link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact__link:hover {
+    text-decoration: underline;
+}
+
+/* Container to hold projects in a row */
+.work__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5em;
+    justify-content: space-between;
+    width: 100%; /* Ensure it takes full width */
+    max-width: 1200px; /* Increase if needed */
+    margin: 0 auto; /* Center the container */
+}
+
+/* Individual project box */
+.work__item {
+    flex: 1 1 calc(50% - 1rem); /* Ensures two projects per row with equal width */
+    box-sizing: border-box;
+    min-width: 250px; /* Ensures a minimum width */
+    max-width: 48%; /* Prevents items from becoming too large */
+}
+
+/* Ensure images do not stretch */
+.work__img img {
+    width: 100%;
+    height: auto; /* Keeps the aspect ratio intact */
+    border-radius: 10px;
+}
+
+/* Project box styling */
+.work__box {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #fff;
+}
+
+/* Hover effect */
+.work__box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Title styling */
+.work__title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0.5rem 0;
+    color: #333;
+}
+
+/* Description styling */
+.work__description {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    color: #666;
+}
+
+/* Link styling */
+.work__repo-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #007bff;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.work__repo-link:hover {
+    text-decoration: underline;
+}
+/* Styles for the links inside each project */
+.work__item a {
+    margin-right: 0.8rem; /* Adds space between links */
+    text-decoration: none; /* Optional: remove underline */
+    color: blue; /* Optional: keep consistent color */
+}
+
+/* Ensure the last link in each project doesn't have extra margin */
+.work__item a:last-child {
+    margin-right: 0;
+}
+/* Individual project box */
+.work__item {
+    flex: 1 1 calc(33.33% - 1rem); /* Change to 33.33% for 3 projects per row with more width */
+    box-sizing: border-box;
+    min-width: 250px; /* Ensures a minimum width */
+    max-width: 50%; /* Prevents items from becoming too large */
+}
+
+
+
+.contact__container {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.contact__details p {
+    margin: 0.5rem 0;
+    color: #555;
+}
+
+.contact__link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.contact__link:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+/* Remove these styles if not used elsewhere */
+.skills__bar {
+    display: none;
+}
+
+.skills__percentage {
+    display: none;
+}
+
+.home__social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.home__social-icon {
+    font-size: 2rem;
+    color: #555;
+    transition: transform 0.3s ease, color 0.3s ease;
+    position: relative;
+}
+
+.home__social-icon:hover {
+    transform: scale(1.2);
+    color: #007bff;
+}
+
+.home__social-icon::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #007bff;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.home__social-icon:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+
+
+/* General Layout and Styling */
+/* General Layout and Styling */
+.skills__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+    gap: 2rem;
+    padding: 2rem;
+    justify-content: center;
+}
+
+/* Category Container */
+.skills__category {
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure consistent spacing inside */
+    height: 100%; /* Make sure all categories have the same height */
+}
+
+/* Hover Effect */
+.skills__category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Category Title */
+.skills__category-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+/* Category Description */
+.skills__category-text {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 1rem;
+}
+
+/* Skill Data Styling */
+.skills__data {
+    margin-bottom: 0.5rem;
+}
+
+.skills__name {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: 500;
+    display: block;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+/* Add a Bullet or Icon for each skill */
+.skills__name::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    font-size: 1.5rem;
+    color: #007bff;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Section Title */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Section Title */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Section Title */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .skills__container {
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row on medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .skills__container {
+        grid-template-columns: 1fr; /* 1 item per row on small screens */
+    }
+}
+
+
+
+
+        </style>
+    </head>
+    <body>
+
+        <!--===== HEADER =====-->
+<header class="l-header">
+    <nav class="nav bd-grid">
+        <div>
+            <a href="#" class="nav__logo">Sarin</a>
+        </div>
+
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
+                <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+                <li class="nav__item"><a href="#project" class="nav__link">Project</a></li>
+                <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Light/Dark Mode Toggle Button -->
+        <div class="theme-toggle">
+            <button id="theme-button" class="theme-button">🌙</button>
+        </div>
     </nav>
-    <nav id="hamburger-nav">
-      <div class="logo">Syed Sarin</div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#skills" onclick="toggleMenu()">Experience</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-        </div>
-      </div>
-    </nav>
-    <section id="profile">
-      <div class="section__pic-container">
-        <img src="./assets/profile-pic.png" alt="John Doe profile picture" />
-      </div>
-      <div class="section__text">
-        <p class="section__text__p1">Hello, I'm</p>
-        <h1 class="title">Syed Sarin</h1>
-        <p class="section__text__p2">Java Developer</p>
-        <div class="btn-container">
-          <button
-            class="btn btn-color-2"
-            onclick="window.open('./assets/resume-example.pdf')"
-          >
-            Download CV
-          </button>
-          <button class="btn btn-color-1" onclick="location.href='#contact'">
-            Contact Info
-          </button>
-        </div>
-        <div id="socials-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="My LinkedIn profile"
-            class="icon"
-            onclick="location.href='https://www.linkedin.com/in/syedsarinmehdi'"
-          />
-          <img
-            src="./assets/github.png"
-            alt="My Github profile"
-            class="icon"
-            onclick="location.href='https://github.com/syedsarin'"
-          />
-        </div>
-      </div>
-    </section>
-    <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title">About Me</h1>
-      <div class="section-container">
-        <div class="section__pic-container">
-          <img
-            src="./assets/about-pic.png"
-            alt="Profile picture"
-            class="about-pic"
-          />
-        </div>
-        <div class="about-details-container">
-          <div class="about-containers">
-            <div class="details-container">
-              <!-- <img
-                src="./assets/experience.png"
-                alt="Experience icon"
-                class="icon"
-              /> -->
-              <h3>Internship</h3>
-              <p>
-                <strong>Slytherin Edutech Pvt Ltd</strong> Oct-2022 to Nov-2022<br>
-                • Explored the structure and functioning of the dark web, identifying potential risks associated with illegal activities.<br>
-                • Gained insights into emerging cyber threats, including ransomware, identity theft, and dark web marketplaces,
-                and studied countermeasures
-              </p>
-            </div>
-            <div class="details-container">
-              <img
-                src="./assets/education.png"
-                alt="Education icon"
-                class="icon"
-              />
-              <h3>Education</h3>
-              <p><strong> •Bachelor of Engineering</strong> 2023<br>(Computer Science and Engineering)<br/>CGPA: 6.86</p><br>
-              <p><strong> •Polytechnic Diploma</strong> 2020<br>(Information Technology)<br/>Percentage: 81.10</p>
-            </div>
-          </div>
-          <div class="text-container">
-            <p>
-              As a passionate and motivated recent graduate in Computer Science Engineering(CSE), I bring a solid foundation in Java programming along with a keen interest in learning and adapting to new technologies. My academic background in computer science Engineering, combined with hands-on projects, and for continuous learning, I'm eager to collaborate on dynamic projects My technical skill set includes Java, Spring Boot, RESTful Web Services, Swagger API, and SQL. I am proficient with Java real-time tools such as Maven, JUnit, SonarQube, JaCoCo, GitHub, Mockito, and JMeter. Additionally, I have hands-on experience with version control tools like GitHub, and a understanding of front-end technologies like HTML, CSS, and JavaScript. to contribute to innovative solutions. Let's
-            </p>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#experience'"
-      />
-    </section>
-    <section id="skills" class="skills section">
-      <h2 class="section-title">Skills</h2>
-  
-      <div class="skills__container">
-  
-          <!-- Programming Language -->
-          <div class="skills__category">
-              <h3 class="skills__category-title">Programming Language</h3>
-              <p class="skills__category-text">Proficient in Core Java, including OOP concepts, Collections, and Java 8 features.</p>
-              <ul>
-                  <li class="skills__name">Java</li>
-                  <li class="skills__name">Java 8 Features</li>
-                  <li class="skills__name">Object-Oriented Programming</li>
-              </ul>
-          </div>
-  
-          <!-- Frameworks -->
-          <div class="skills__category">
-              <h3 class="skills__category-title">Framework</h3>
-              <p class="skills__category-text"></p>
-              <ul>
-                  <li class="skills__name">Spring Boot</li>
-                  <li class="skills__name">Spring Data JPA</li>
-                  <li class="skills__name">Spring MVC</li>
-                  <li class="skills__name">Spring Security</li>
-              </ul>
-          </div>
-  
-          <!-- Databases -->
-          <div class="skills__category">
-              <h3 class="skills__category-title">Database</h3>
-              <!-- <p class="skills__category-text">Skilled in database design, SQL, and using relational databases like PostgreSQL and Oracle.</p> -->
-              <ul>
-                  <li class="skills__name">MySQL (SQL)</li>
-                  <li class="skills__name">Oracle (SQL)</li>
-              </ul>
-          </div>
-  
-          <!-- UI Technologies -->
-          <div class="skills__category">
-              <h3 class="skills__category-title">UI Technology</h3>
-              <!-- <p class="skills__category-text">Proficient in HTML5, CSS3, JavaScript, and Thymeleaf for front-end development.</p> -->
-              <ul>
-                  <li class="skills__name">HTML5</li>
-                  <li class="skills__name">CSS3</li>
-                  <li class="skills__name">JavaScript</li>
-                  <li class="skills__name">Thymeleaf</li>
-              </ul>
-          </div>
-  
-          <!-- Java Real-time Tools -->
-          <div class="skills__category">
-              <h3 class="skills__category-title">Java Real-time Tools</h3>
-              <p class="skills__category-text">Hands-on experience with Java real-time tools and CI/CD pipelines.</p>
-              <ul>
-                  <li class="skills__name">Maven</li>
-                  <li class="skills__name">SonarQube</li>
-                  <li class="skills__name">JaCoCo</li>
-                  <li class="skills__name">JUnit</li>
-                  <li class="skills__name">Mockito</li>
-                  <li class="skills__name">SLF4J</li>
-                  <li class="skills__name">JMeter</li>
-                  <li class="skills__name">Jenkins CI/CD</li>
-              </ul>
-          </div>
-  
-          <!-- Other Tools -->
-          <div class="skills__category">
-              <h3 class="skills__category-title">Other Tools</h3>
-              <ul>
-                  <li class="skills__name">GitHub</li>
-                  <li class="skills__name">Eclipse IDE</li>
-                  <li class="skills__name">Postman</li>
-              </ul>
-          </div>
-      </div>
-  </section>
-  <section id="projects">
-    <p class="section__text__p1">Browse My Recent</p>
-    <h1 class="title">Projects</h1>
-    <div class="experience-details-container">
-      <div class="about-containers">
-        
-        <!-- Project One -->
-        <div class="details-container color-container">
-          <div class="article-container">
-            <img
-              src="./assets/project-1.png"
-              alt="Project 1"
-              class="project-img"
-            />
-          </div>
-          <h2 class="experience-sub-title project-title">E-Commerce Shopping Application
-          </h2>
-          <div class="btn-container">
-            <button
-              class="btn btn-color-2 project-btn"
-              onclick="location.href='https://github.com/syedsarin/Online-Shopping-WebApplication'"
-            >
-              Github
-            </button>
-            <button
-              class="btn btn-color-2 project-btn"
-              onclick="location.href='https://github.com/syedsarin/Online-Shopping-WebApplication'"
-            >
-              Live Demo
-            </button>
-          </div>
-          <br>
-          <!-- Partial Content for Project One -->
-          <div class="content-preview">
-            <strong>Project Overview:</strong><br>
-            - Online shopping platform with Admin and Customer modules.<br>
-            - Ensures seamless shopping experience and efficient management.<br>
-            <strong>Modules and Features:</strong><br>
+</header>
 
-            <p>Admin<br>
-               Customer<br>
-            Technologies Used</p>
-            
-          </div>
-          
-          <!-- More Content for Project One -->
-          <div class="more-content" id="moreContentProjectOne">
-            <strong>Modules and Features:</strong><br>
-            <strong>Admin Module:</strong><br>
-            - Manage products: Add, update, delete, or deactivate.<br>
-            - Manage orders: Track, update, and search by Order ID.<br>
-            <strong>Customer Module:</strong><br>
-            - Browse products: Search by keywords or categories.<br>
-            - Shopping cart: Add, review, and place orders.<br>
-            <strong>Technologies Used:</strong><br>
-            - Backend: Java, Spring Boot, RESTful Web Services<br>
-            - Frontend: HTML, CSS, JavaScript, Thymeleaf<br>
-            - Database: MySQL.<br>
-          </div>
-          <button class="show-more-btn" onclick="toggleMoreContent('ProjectOne')">Show More</button>
+       
+
+        <main class="l-main">
+            <!--===== HOME =====-->
+            <section class="home bd-grid" id="home">
+                <div class="home__data">
+                    <h1 class="home__title">Hi,<br>I'am <span class="home__title-color">Sarin</span><br>Java Developer</h1>
+
+                    <a href="#" class="button">Contact</a>
+                </div>
+                <div class="home__social">
+                    <a href="https://www.linkedin.com/in/syedsarinmehdi" target="_blank" class="home__social-icon">
+                        <i class='bx bxl-linkedin'></i>
+                    </a>
+                
+                    <a href="https://github.com/syedsarin" target="_blank" class="home__social-icon">
+                        <i class='bx bxl-github'></i>
+                    </a>
+                </div>
+                
+                <div class="home__img">
+                    <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <mask id="mask0" mask-type="alpha">
+                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
+                        </mask>
+                        <g mask="url(#mask0)">
+                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
+                            <image class="home__blob-img" x="50" y="60" href="assets/img/perfil.jpg"/>
+                        </g>
+                    </svg>
+                </div>
+            </section>
+
+            <!--===== ABOUT =====-->
+            <section class="about section " id="about">
+                <h2 class="section-title">About</h2>
+
+                <div class="about__container bd-grid">
+                    <div class="about__img">
+                        <img src="assets/img/about.jpg" alt="">
+                    </div>
+                    
+                    <div>
+                        <h2 class="about__subtitle">I'am Sarin</h2>
+                        <p class="about__text">As a passionate and motivated recent graduate in Computer Science Engineering(CSE), I bring a solid foundation in Java programming along with a keen interest in learning and adapting to new technologies. My academic background in computer science Engineering, combined with hands-on projects, and for continuous learning, I'm eager to collaborate on dynamic projects My technical skill set includes Java, Spring Boot, RESTful Web Services, Swagger API, and SQL. I am proficient with Java real-time tools such as Maven, JUnit, SonarQube, JaCoCo, GitHub, Mockito, and JMeter. Additionally, I have hands-on experience with version control tools like GitHub, and a understanding of front-end technologies like HTML, CSS, and JavaScript. to contribute to innovative solutions. Let's connect and discuss how I can add value to your team.</p>           
+                    </div>                                   
+                </div>
+            </section>
+
+       <!--===== SKILLS =====-->
+<!--===== SKILLS =====-->
+<section class="skills section" id="skills">
+    <h2 class="section-title">Skills</h2>
+
+    <div class="skills__container">
+        <div class="skills__category">
+            <h3 class="skills__category-title">Programming Languages</h3>
+            <p class="skills__category-text">Proficient in developing robust applications using industry-standard languages.</p>
+            <div class="skills__data">
+                <span class="skills__name">Java</span>
+            </div>
         </div>
 
+        <div class="skills__category">
+            <h3 class="skills__category-title">Frameworks</h3>
+            <p class="skills__category-text">Experienced in building enterprise-grade applications using modern frameworks.</p>
+            <div class="skills__data">
+                <span class="skills__name">Spring Boot</span>
+            </div>
+            <div class="skills__data">
+                <span class="skills__name">RESTful Web Services</span>
+            </div>
+            <div class="skills__data">
+                <span class="skills__name">Swagger API</span>
+            </div>
+        </div>
 
-           <!-- Project One -->
-           <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-1.png"
-                alt="Project 1"
-                class="project-img"
-              />
+        <div class="skills__category">
+            <h3 class="skills__category-title">UI Development</h3>
+            <div class="skills__data">
+                <span class="skills__name">HTML</span>
             </div>
-            <h2 class="experience-sub-title project-title">Smart Appointment and Health Prediction System
-            </h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Live Demo
-              </button>
+            <div class="skills__data">
+                <span class="skills__name">CSS</span>
             </div>
-            
-            <!-- Partial Content for Project Two -->
-
-            <br>
-            <div class="content-preview">
-              <strong>Project Overview:</strong><br>
-              - The Smart Health Prediction and Appointment Booking Systempredicts diseases based on user symptoms and suggests doctors accordingly, allowing users to book appointments while admins manage doctors and doctors handle appointment approvals.
-              <br>
-             <strong>Modules and Features:</strong><br>
+            <div class="skills__data">
+                <span class="skills__name">JavaScript</span>
             </div>
-            
-            <!-- More Content for Project One -->
-            <div class="more-content" id="moreContentProjectTwo">
-              <strong>Modules and Features:</strong><br>
-              <strong>Admin Module:</strong><br>
-              - Add Doctor: Enter doctor details like name, specialization, contact, etc.<br>
-              - Delete Doctor: Remove doctor profiles from the system.<br>
-              - Manage Users/Doctors: View all registered users and doctors.<br>
-              <strong>User Module:</strong><br>
-              - Predict Disease: Users input symptoms, and the system predicts the possible disease using a machine learning model or rule-based.<br>
-              - Suggest Doctor: Based on the predicted disease, the system suggests a doctor specializing in that area.<br>
-              - Book Appointment: Users can book appointments with suggested doctors.<br>
-              - View Appointment Status: Check if the doctor has accepted or rejected the appointment.<br>
-              
-            </div>
-            <button class="show-more-btn" onclick="toggleMoreContent('ProjectTwo')">Show More</button>
-          </div>
-  
-        <!-- Project Two (same structure as above) -->
-        <!-- Project Three (same structure as above) -->
-      </div>
+        </div>
+<!-- Database Section -->
+<div class="skills__category">
+    <h3 class="skills__category-title">Database</h3>
+    <!-- Only showing Oracle (SQL) -->
+    <div class="skills__data">
+        <span class="skills__name">Oracle (SQL)</span>
     </div>
-  </section>
-  
-      <section id="contact">
-      <p class="section__text__p1">Get in Touch</p>
-      <h1 class="title">Contact Me</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <img
-            src="./assets/email.png"
-            alt="Email icon"
-            class="icon contact-icon email-icon"
-          />
-          <p><a href="mailto:syedsarinmehdi@gmai.com">Mail Me</a></p>
+</div>
+
+         
+
+        <div class="skills__category">
+            <h3 class="skills__category-title">Java Realtime Tools</h3>
+            <p class="skills__category-text">Proficient in using tools for development, testing, and deployment.</p>
+            <div class="skills__data">
+                <span class="skills__name">Maven</span>
+            </div>
+            <div class="skills__data">
+                <span class="skills__name">JUnit</span>
+            </div>
+            <div class="skills__data">
+                <span class="skills__name">SonarQube</span>
+            </div>
+            <div class="skills__data">
+                <span class="skills__name">SLF4J</span>
+            </div>
+            <div class="skills__data">
+                <span class="skills__name">Jmeter</span>
+            </div>
+            <div class="skills__data">
+                <span class="skills__name">Mockito</span>
+            </div>
+            <div class="skills__data">
+                <span class="skills__name">Jacoco</span>
+            </div>
+            <div class="skills__data">
+                <span class="skills__name">Postman</span>
+            </div>
         </div>
-        <div class="contact-info-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="LinkedIn icon"
-            class="icon contact-icon"
-          />
-          <p><a href="https://www.linkedin.com/in/syedsarinmehdi/">LinkedIn</a></p>
+
+        <div class="skills__category">
+            <h3 class="skills__category-title">Other Tools</h3>
+            <p class="skills__category-text">Familiar with essential development environments and collaboration tools.</p>
+            <div class="skills__data">
+                <span class="skills__name">Git</span>
+            </div>
+            <div class="skills__data">
+                <span class="skills__name">GitHub</span>
+            </div>
+            <div class="skills__data">
+                <span class="skills__name">Eclipse IDE</span>
+            </div>
+            <div class="skills__data">
+                <span class="skills__name">IntelliJ IDEA</span>
+            </div>
+            <div class="skills__data">
+                <span class="skills__name">VS Code</span>
+            </div>
         </div>
-      </div>
-    </section>
-    <footer>
-      <nav>
-        <div class="nav-links-container">
-          <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
+    </div>
+</section>
+
+
+         <!--===== Project =====-->
+         <section class="work section" id="work">
+            <h2 class="section-title">Project</h2>
+        
+            <div class="work__container bd-grid">
+                
+                <div class="work__item">
+                    <div class="work__box">
+                        <h3 class="work__title" style="text-align: left;"><strong>E-Commerce Shopping Application</strong></h3>
+                        <a href="#" class="work__img">
+                            <img src="assets/img/work2.jpg" alt="Project 2">
+                        </a>
+                        <a href="https://github.com/yourusername/project1" target="_blank" class="work__repo-link">Live Demo</a>
+                        <a href="https://github.com/syedsarin/Online-Shopping-WebApplication" target="_blank" class="work__repo-link">View Repository</a><br>
+                        <p class="work__description" style="text-align: left;">
+                            <strong>Project Overview:</strong><br>
+                            - Online shopping platform with Admin and Customer modules.<br>
+                            - Ensures seamless shopping experience and efficient management.<br><br>
+                
+                            <strong>Modules and Features:</strong><br>
+                            <strong>Admin Module:</strong><br>
+                            - Manage products: Add, update, delete, or deactivate.<br>
+                            - Manage orders: Track, update, and search by Order ID.<br>
+                            - User management: Manage customer accounts and add admins.<br>
+                            - Category management: Organize products by categories.<br><br>
+                
+                            <strong>Customer Module:</strong><br>
+                            - Browse products: Search by keywords or categories.<br>
+                            - Shopping cart: Add, review, and place orders.<br>
+                            - Account management: Register, log in, and reset password.<br>
+                            - Order tracking: View order history and status.<br><br>
+
+                            <strong>Technologies Used:</strong><br>
+                            - Backend: Java, Spring Boot, RESTful Web Services<br>
+                            - Frontend: HTML, CSS, JavaScript, Thymeleaf<br>
+                            - Database: MySQL.<br>
+                            - Tools: Maven, JUnit, Jacoco, SonarQube, GitHub, Eclipse IDE.<br>
+                        </p>
+
+
+                        
+
+
+
+
+                    </div>
+                </div>
+                
+
+                <div class="work__item">
+                    <div class="work__box">
+                        <h3 class="work__title">Smart Appointment and Health Prediction System</h3>
+                        <a href="#" class="work__img">
+                            <img src="assets/img/work1.png" alt="Project 1">
+                        </a>
+                        <p class="work__description" style="text-align: left;">
+                        <strong>Project Overview:</strong><br>
+                        - The Smart Health Prediction and Appointment Booking Systempredicts diseases based on user symptoms and suggests doctors accordingly, allowing users to book appointments while admins manage doctors and doctors handle appointment approvals.<br>
+                        <br>
+            
+                        <strong>Modules and Features:</strong><br>
+                        <strong>Admin Module:</strong><br>
+                        - Add Doctor: Enter doctor details like name, specialization, contact, etc.<br>
+                        - Delete Doctor: Remove doctor profiles from the system.<br>
+                        - Manage Users/Doctors: View all registered users and doctors.<br>
+                    <br>
+            
+                        <strong>User Module:</strong><br>
+                        - Predict Disease: Users input symptoms, and the system predicts the possible disease using a machine learning model or rule-based.<br>
+                        - Suggest Doctor: Based on the predicted disease, the system suggests a doctor specializing in that area.<br>
+                        - Book Appointment: Users can book appointments with suggested doctors.<br>
+                        - View Appointment Status: Check if the doctor has accepted or rejected the appointment.
+<br>
+                    </p>
+
+
+                    </div>
+                </div>                
+        </section>
+        
+        <!--===== CONTACT =====-->
+<section class="contact section" id="contact">
+    <h2 class="section-title">Contact</h2>
+
+    <div class="contact__container bd-grid">
+        <div class="contact__details">
+            <p>Want to get in touch?</p>
+            <a href="mailto:syedsarin05@gmail.com" class="contact__link">Mail Me</a>
+            <p>syedsarin05@gmail.com</p>
         </div>
-      </nav>
-      <p>Copyright &#169; 2023 John Doe. All Rights Reserved.</p>
-    </footer>
-    <script src="script.js"></script>
-  </body>
+    </div>
+</section>
+        </main>
+
+        <!--===== FOOTER =====-->
+        <footer class="footer">
+            <p class="footer__title">Sarin</p>
+            <div class="footer__social">
+                <a href="https://www.linkedin.com/in/syedsarinmehdi" target="_blank" class="footer__icon">
+                    <i class='bx bxl-linkedin'></i>
+                </a>     
+        
+                <a href="https://github.com/syedsarin" target="_blank" class="footer__icon">
+                    <i class='bx bxl-github'></i>
+                </a>
+        
+            </div>
+            <p class="footer__copy">&#169; All rigths reserved</p>
+        </footer>
+        
+    
+       
+
+        <!--===== SCROLL REVEAL =====-->
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!--===== MAIN JS =====-->
+        <script src="\\assets\js\main.js"></script>
+        <script src="\\assets\js\dark.js"></script>
+
+    </body>
 </html>
