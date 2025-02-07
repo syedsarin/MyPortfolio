@@ -6,6 +6,7 @@
 
         <link rel="stylesheet" href="assets\css\styles.css">
         <link rel="stylesheet" href="assets\css\Dark.css">
+        <link rel="stylesheet" href="assets\css\about.css">
 
 
         <!-- =====BOX ICONS===== -->
@@ -13,301 +14,6 @@
 
         <title>Portfolio website complete</title>
 
-        <style>
-
-
-.contact__container {
-    text-align: center;
-    font-size: 1.2rem;
-}
-
-.contact__email p {
-    margin: 0.5rem 0;
-    color: #555;
-}
-
-.contact__link {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.contact__link:hover {
-    text-decoration: underline;
-}
-
-/* Container to hold projects in a row */
-.work__container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5em;
-    justify-content: space-between;
-    width: 100%; /* Ensure it takes full width */
-    max-width: 1200px; /* Increase if needed */
-    margin: 0 auto; /* Center the container */
-}
-
-/* Individual project box */
-.work__item {
-    flex: 1 1 calc(50% - 1rem); /* Ensures two projects per row with equal width */
-    box-sizing: border-box;
-    min-width: 250px; /* Ensures a minimum width */
-    max-width: 48%; /* Prevents items from becoming too large */
-}
-
-/* Ensure images do not stretch */
-.work__img img {
-    width: 100%;
-    height: auto; /* Keeps the aspect ratio intact */
-    border-radius: 10px;
-}
-
-/* Project box styling */
-.work__box {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 1rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: #fff;
-}
-
-/* Hover effect */
-.work__box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Title styling */
-.work__title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin: 0.5rem 0;
-    color: #333;
-}
-
-/* Description styling */
-.work__description {
-    font-size: 1rem;
-    margin: 0.5rem 0;
-    color: #666;
-}
-
-/* Link styling */
-.work__repo-link {
-    display: inline-block;
-    margin-top: 0.5rem;
-    color: #007bff;
-    font-size: 1rem;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.work__repo-link:hover {
-    text-decoration: underline;
-}
-/* Styles for the links inside each project */
-.work__item a {
-    margin-right: 0.8rem; /* Adds space between links */
-    text-decoration: none; /* Optional: remove underline */
-    color: blue; /* Optional: keep consistent color */
-}
-
-/* Ensure the last link in each project doesn't have extra margin */
-.work__item a:last-child {
-    margin-right: 0;
-}
-/* Individual project box */
-.work__item {
-    flex: 1 1 calc(33.33% - 1rem); /* Change to 33.33% for 3 projects per row with more width */
-    box-sizing: border-box;
-    min-width: 250px; /* Ensures a minimum width */
-    max-width: 50%; /* Prevents items from becoming too large */
-}
-
-
-
-.contact__container {
-    text-align: center;
-    font-size: 1.2rem;
-}
-
-.contact__details p {
-    margin: 0.5rem 0;
-    color: #555;
-}
-
-.contact__link {
-    display: inline-block;
-    margin-top: 1rem;
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-.contact__link:hover {
-    text-decoration: underline;
-    color: #0056b3;
-}
-
-/* Remove these styles if not used elsewhere */
-.skills__bar {
-    display: none;
-}
-
-.skills__percentage {
-    display: none;
-}
-
-.home__social {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.home__social-icon {
-    font-size: 2rem;
-    color: #555;
-    transition: transform 0.3s ease, color 0.3s ease;
-    position: relative;
-}
-
-.home__social-icon:hover {
-    transform: scale(1.2);
-    color: #007bff;
-}
-
-.home__social-icon::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background-color: #007bff;
-    transition: width 0.3s ease, left 0.3s ease;
-}
-
-.home__social-icon:hover::after {
-    width: 100%;
-    left: 0;
-}
-
-
-
-/* General Layout and Styling */
-/* General Layout and Styling */
-.skills__container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
-    gap: 2rem;
-    padding: 2rem;
-    justify-content: center;
-}
-
-/* Category Container */
-.skills__category {
-    background-color: #f9f9f9;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Ensure consistent spacing inside */
-    height: 100%; /* Make sure all categories have the same height */
-}
-
-/* Hover Effect */
-.skills__category:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Category Title */
-.skills__category-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 0.5rem;
-}
-
-/* Category Description */
-.skills__category-text {
-    font-size: 1rem;
-    color: #777;
-    margin-bottom: 1rem;
-}
-
-/* Skill Data Styling */
-.skills__data {
-    margin-bottom: 0.5rem;
-}
-
-.skills__name {
-    font-size: 1.2rem;
-    color: #333;
-    font-weight: 500;
-    display: block;
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-/* Add a Bullet or Icon for each skill */
-.skills__name::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    font-size: 1.5rem;
-    color: #007bff;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-/* Section Title */
-.section-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #007bff;
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-/* Section Title */
-.section-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #007bff;
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-/* Section Title */
-.section-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #007bff;
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-@media (max-width: 768px) {
-    .skills__container {
-        grid-template-columns: repeat(2, 1fr); /* 2 items per row on medium screens */
-    }
-}
-
-@media (max-width: 480px) {
-    .skills__container {
-        grid-template-columns: 1fr; /* 1 item per row on small screens */
-    }
-}
-
-
-
-
-        </style>
     </head>
     <body>
 
@@ -368,22 +74,37 @@
                 </div>
             </section>
 
-            <!--===== ABOUT =====-->
-            <section class="about section " id="about">
-                <h2 class="section-title">About</h2>
-
-                <div class="about__container bd-grid">
-                    <div class="about__img">
-                        <img src="assets/img/about.jpg" alt="">
-                    </div>
-                    
-                    <div>
-                        <h2 class="about__subtitle">I'am Sarin</h2>
-                        <p class="about__text">As a passionate and motivated recent graduate in Computer Science Engineering(CSE), I bring a solid foundation in Java programming along with a keen interest in learning and adapting to new technologies. My academic background in computer science Engineering, combined with hands-on projects, and for continuous learning, I'm eager to collaborate on dynamic projects My technical skill set includes Java, Spring Boot, RESTful Web Services, Swagger API, and SQL. I am proficient with Java real-time tools such as Maven, JUnit, SonarQube, JaCoCo, GitHub, Mockito, and JMeter. Additionally, I have hands-on experience with version control tools like GitHub, and a understanding of front-end technologies like HTML, CSS, and JavaScript. to contribute to innovative solutions. Let's connect and discuss how I can add value to your team.</p>           
-                    </div>                                   
+              <!--===== ABOUT SECTION =====-->
+        <section class="about section" id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="about__container">
+                <div class="internship">
+                    <h2>Internship</h2>
+                    <p><strong>Slytherin Edutech Pvt Ltd</strong> Oct-2022 to Nov-2022<br>
+                        • Explored the structure and functioning of the dark web, identifying potential risks associated with illegal activities.<br><br>
+                        • Gained insights into emerging cyber threats, including ransomware, identity theft, and dark web marketplaces,
+                        and studied countermeasures.</p>
                 </div>
-            </section>
+                <div class="education">
+                    <h2>Education</h2>
+                    <p><strong> •Bachelor of Engineering</strong> 2023<br>in<br>(Computer Science and Engineering)<br/>CGPA: 6.86</p><br>
+                    <p><strong> •Polytechnic Diploma</strong> 2020<br>in<br>(Information Technology)<br/>Percentage: 81.10</p>
 
+                </div>
+                <div class="education">
+                    <h2>Certification Course</h2>
+                    <p><strong> •Java Full-Stack Developer</strong><br></p><br>
+                        
+                </div>
+
+                <p>As a recent Computer Science Engineering (CSE) graduate, I have a strong foundation in Java, Spring Boot, RESTful Web Services, and SQL.
+                     With hands-on experience in real-time tools like Maven, JUnit, SonarQube, JaCoCo, GitHub, Mockito, and JMeter,
+                      I am eager to contribute to dynamic projects. Additionally, I have a basic understanding of front-end technologies (HTML, CSS, JavaScript Thymeleaf)
+                       and a passion for learning and adapting to new technologies."
+                </p>
+            </div>
+            
+        </section>
        <!--===== SKILLS =====-->
 <!--===== SKILLS =====-->
 <section class="skills section" id="skills">
@@ -488,7 +209,7 @@
 
 
          <!--===== Project =====-->
-         <section class="work section" id="work">
+         <section class="work section" id="project">
             <h2 class="section-title">Project</h2>
         
             <div class="work__container bd-grid">
@@ -525,13 +246,6 @@
                             - Database: MySQL.<br>
                             - Tools: Maven, JUnit, Jacoco, SonarQube, GitHub, Eclipse IDE.<br>
                         </p>
-
-
-                        
-
-
-
-
                     </div>
                 </div>
                 
@@ -559,7 +273,7 @@
                         - Suggest Doctor: Based on the predicted disease, the system suggests a doctor specializing in that area.<br>
                         - Book Appointment: Users can book appointments with suggested doctors.<br>
                         - View Appointment Status: Check if the doctor has accepted or rejected the appointment.
-<br>
+                    <br>
                     </p>
 
 
